@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - JobSearch</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">
+            <h1>JobSearch</h1>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="jobs.html">Jobs</a>
+            <a href="companies.html">Companies</a>
+            <a href="about.html" class="active">About</a>
+        </div>
+        <div class="auth-buttons">
+            <a href="login.html" class="login-btn">Login</a>
+            <a href="signup.html" class="signup-btn">Sign Up</a>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <div class="page-container">
+        <div class="about-section">
+            <h1 class="page-title">About JobSearch</h1>
+            <p>Welcome to JobSearch, your trusted partner in finding the perfect career opportunity. We are dedicated to connecting talented professionals with their dream jobs and helping companies find their ideal candidates.</p>
+            
+            <h2>Our Mission</h2>
+            <p>Our mission is to simplify the job search process and create meaningful connections between employers and job seekers. We believe that everyone deserves to find a job they love and that companies deserve to find the best talent.</p>
+            
+            <h2>What We Offer</h2>
+            <ul>
+                <li>Advanced job search capabilities</li>
+                <li>Company profiles and reviews</li>
+                <li>Career resources and guidance</li>
+                <li>Professional networking opportunities</li>
+                <li>Personalized job recommendations</li>
+            </ul>
+
+            <h2>Contact Us</h2>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 

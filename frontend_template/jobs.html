@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jobs List - JobSearch</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">
+            <h1>JobSearch</h1>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="jobs.html" class="active">Jobs</a>
+            <a href="seekers.html">Job Seekers</a>
+            <a href="about.html">About</a>
+        </div>
+        <div class="auth-buttons">
+            <a href="login.html" class="login-btn">Login</a>
+            <a href="signup.html" class="signup-btn">Sign Up</a>
+        </div>
+    </nav>
+
+    <!-- Jobs List Section -->
+    <section class="jobs-list-section">
+        <div class="jobs-container">
+            <!-- Filters Sidebar -->
+            <div class="filters-sidebar">
+                <div class="filter-group">
+                    <h3>Job Type</h3>
+                    <div class="filter-options">
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="job-type" value="full-time">
+                            <span class="checkmark"></span>
+                            Full Time
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="job-type" value="part-time">
+                            <span class="checkmark"></span>
+                            Part Time
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="job-type" value="contract">
+                            <span class="checkmark"></span>
+                            Contract
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="job-type" value="internship">
+                            <span class="checkmark"></span>
+                            Internship
+                        </label>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <h3>Experience Level</h3>
+                    <div class="filter-options">
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="experience" value="entry">
+                            <span class="checkmark"></span>
+                            Entry Level
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="experience" value="mid">
+                            <span class="checkmark"></span>
+                            Mid Level
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="experience" value="senior">
+                            <span class="checkmark"></span>
+                            Senior Level
+                        </label>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <h3>Work Mode</h3>
+                    <div class="filter-options">
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="work-mode" value="remote">
+                            <span class="checkmark"></span>
+                            Remote
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="work-mode" value="onsite">
+                            <span class="checkmark"></span>
+                            On-site
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="work-mode" value="hybrid">
+                            <span class="checkmark"></span>
+                            Hybrid
+                        </label>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <h3>Salary Range</h3>
+                    <div class="filter-options">
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="salary" value="0-50k">
+                            <span class="checkmark"></span>
+                            $0 - $50,000
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="salary" value="50k-100k">
+                            <span class="checkmark"></span>
+                            $50,000 - $100,000
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="salary" value="100k+">
+                            <span class="checkmark"></span>
+                            $100,000+
+                        </label>
+                    </div>
+                </div>
+
+                <button class="apply-filters-btn">Apply Filters</button>
+                <button class="reset-filters-btn">Reset Filters</button>
+            </div>
+
+            <!-- Jobs List -->
+            <div class="jobs-list">
+                <div class="jobs-header">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search jobs...">
+                    </div>
+                    <div class="sort-options">
+                        <select>
+                            <option value="newest">Newest First</option>
+                            <option value="oldest">Oldest First</option>
+                            <option value="salary-high">Salary: High to Low</option>
+                            <option value="salary-low">Salary: Low to High</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="jobs-grid">
+                    <!-- Job Card 1 -->
+                    <div class="job-card">
+                        <div class="job-info">
+                            <h3>Senior Software Engineer</h3>
+                            <p class="company">Tech Solutions Inc.</p>
+                            <p class="location"><i class="fas fa-map-marker-alt"></i> New York, NY</p>
+                            <div class="job-tags">
+                                <span>Full-time</span>
+                                <span>Remote</span>
+                                <span>$120k - $150k</span>
+                            </div>
+                        </div>
+                        <a href="job-details.html" class="apply-btn">Apply Now</a>
+                    </div>
+
+                    <!-- Job Card 2 -->
+                    <div class="job-card">
+                        <div class="job-info">
+                            <h3>UX/UI Designer</h3>
+                            <p class="company">Creative Design Co.</p>
+                            <p class="location"><i class="fas fa-map-marker-alt"></i> San Francisco, CA</p>
+                            <div class="job-tags">
+                                <span>Full-time</span>
+                                <span>Hybrid</span>
+                                <span>$90k - $110k</span>
+                            </div>
+                        </div>
+                        <a href="job-details.html" class="apply-btn">Apply Now</a>
+                    </div>
+
+                    <!-- Job Card 3 -->
+                    <div class="job-card">
+                        <div class="job-info">
+                            <h3>Marketing Manager</h3>
+                            <p class="company">Global Marketing Ltd.</p>
+                            <p class="location"><i class="fas fa-map-marker-alt"></i> London, UK</p>
+                            <div class="job-tags">
+                                <span>Full-time</span>
+                                <span>On-site</span>
+                                <span>$80k - $100k</span>
+                            </div>
+                        </div>
+                        <a href="job-details.html" class="apply-btn">Apply Now</a>
+                    </div>
+
+                    <!-- Job Card 4 -->
+                    <div class="job-card">
+                        <div class="job-info">
+                            <h3>Data Scientist</h3>
+                            <p class="company">AI Solutions Corp</p>
+                            <p class="location"><i class="fas fa-map-marker-alt"></i> Boston, MA</p>
+                            <div class="job-tags">
+                                <span>Full-time</span>
+                                <span>Remote</span>
+                                <span>$130k - $160k</span>
+                            </div>
+                        </div>
+                        <a href="job-details.html" class="apply-btn">Apply Now</a>
+                    </div>
+
+                    <!-- Job Card 5 -->
+                    <div class="job-card">
+                        <div class="job-info">
+                            <h3>Product Manager</h3>
+                            <p class="company">Tech Innovations</p>
+                            <p class="location"><i class="fas fa-map-marker-alt"></i> Seattle, WA</p>
+                            <div class="job-tags">
+                                <span>Full-time</span>
+                                <span>Hybrid</span>
+                                <span>$110k - $140k</span>
+                            </div>
+                        </div>
+                        <a href="job-details.html" class="apply-btn">Apply Now</a>
+                    </div>
+
+                    <!-- Job Card 6 -->
+                    <div class="job-card">
+                        <div class="job-info">
+                            <h3>DevOps Engineer</h3>
+                            <p class="company">Cloud Systems Inc</p>
+                            <p class="location"><i class="fas fa-map-marker-alt"></i> Austin, TX</p>
+                            <div class="job-tags">
+                                <span>Full-time</span>
+                                <span>Remote</span>
+                                <span>$100k - $130k</span>
+                            </div>
+                        </div>
+                        <a href="job-details.html" class="apply-btn">Apply Now</a>
+                    </div>
+
+                    <!-- Job Card 7 -->
+                    <div class="job-card">
+                        <div class="job-info">
+                            <h3>Frontend Developer</h3>
+                            <p class="company">Web Solutions Ltd</p>
+                            <p class="location"><i class="fas fa-map-marker-alt"></i> Chicago, IL</p>
+                            <div class="job-tags">
+                                <span>Full-time</span>
+                                <span>Remote</span>
+                                <span>$95k - $120k</span>
+                            </div>
+                        </div>
+                        <a href="job-details.html" class="apply-btn">Apply Now</a>
+                    </div>
+
+                    <!-- Job Card 8 -->
+                    <div class="job-card">
+                        <div class="job-info">
+                            <h3>Backend Developer</h3>
+                            <p class="company">Server Solutions</p>
+                            <p class="location"><i class="fas fa-map-marker-alt"></i> Denver, CO</p>
+                            <div class="job-tags">
+                                <span>Full-time</span>
+                                <span>Hybrid</span>
+                                <span>$105k - $135k</span>
+                            </div>
+                        </div>
+                        <a href="job-details.html" class="apply-btn">Apply Now</a>
+                    </div>
+
+                    <!-- Job Card 9 -->
+                    <div class="job-card">
+                        <div class="job-info">
+                            <h3>Mobile Developer</h3>
+                            <p class="company">App Innovations</p>
+                            <p class="location"><i class="fas fa-map-marker-alt"></i> Miami, FL</p>
+                            <div class="job-tags">
+                                <span>Full-time</span>
+                                <span>On-site</span>
+                                <span>$90k - $115k</span>
+                            </div>
+                        </div>
+                        <a href="job-details.html" class="apply-btn">Apply Now</a>
+                    </div>
+
+                    <!-- Job Card 10 -->
+                    <div class="job-card">
+                        <div class="job-info">
+                            <h3>QA Engineer</h3>
+                            <p class="company">Quality Assurance Pro</p>
+                            <p class="location"><i class="fas fa-map-marker-alt"></i> Portland, OR</p>
+                            <div class="job-tags">
+                                <span>Full-time</span>
+                                <span>Remote</span>
+                                <span>$85k - $110k</span>
+                            </div>
+                        </div>
+                        <a href="job-details.html" class="apply-btn">Apply Now</a>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    <button class="page-btn active">1</button>
+                    <button class="page-btn">2</button>
+                    <button class="page-btn">3</button>
+                    <button class="page-btn">4</button>
+                    <button class="page-btn">5</button>
+                    <button class="page-btn next">Next <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>JobSearch</h3>
+                <p>Find your dream job with us</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="jobs.html">Jobs</a></li>
+                    <li><a href="companies.html">Companies</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>For Employers</h3>
+                <ul>
+                    <li><a href="#">Post a Job</a></li>
+                    <li><a href="#">Search Resumes</a></li>
+                    <li><a href="#">Pricing Plans</a></li>
+                    <li><a href="#">Employer Resources</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <ul class="contact-info">
+                    <li><i class="fas fa-envelope"></i> info@jobsearch.com</li>
+                    <li><i class="fas fa-phone"></i> +1 234 567 890</li>
+                    <li><i class="fas fa-map-marker-alt"></i> 123 Job Street, City</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 JobSearch. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

@@ -13,8 +13,8 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Job)
 class JobAdmin(admin.ModelAdmin):
-    list_display = ('title', 'company_name', 'category', 'location', 'job_type', 'work_location', 'salary', 'created_at')
-    list_filter = ('category', 'job_type', 'work_location', 'created_at')
+    list_display = ('title', 'company_name', 'category', 'job_type', 'created_at')
+    list_filter = ('category', 'job_type', 'created_at')
     search_fields = ('title', 'company_name', 'location', 'category__name', 'description', 'requirements')
     list_per_page = 20
     ordering = ('-created_at',)
@@ -25,11 +25,10 @@ class JobAdmin(admin.ModelAdmin):
             'fields': ('title', 'company_name', 'category', 'location')
         }),
         ('Job Details', {
-            'fields': ('job_type', 'work_location', 'experience_years', 'salary')
+            'fields': ('job_type', 'salary')
         }),
-        ('Description & Requirements', {
-            'fields': ('description', 'requirements'),
-            'classes': ('collapse',)
+        ('Description', {
+            'fields': ('description', 'email' , 'url_of_job')
         }),
         ('Timestamps', {
             'fields': ('created_at', 'updated_at'),

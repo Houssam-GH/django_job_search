@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+    <!-- Jobs List Section -->
+    <section class="jobs-list-section">
+        <div class="jobs-container">
+            <!-- Filters Sidebar -->
+            <div class="filters-sidebar">
+                <form method="get">
+
+                    <!-- Job Type Filter -->
+                    <div class="filter-group">
+                        <h3>Job Type</h3>
+                        <div class="filter-options">
+                            <label class="checkbox-container">
+                                <input type="checkbox" name="job_type" value="full_time" {% if 'full_time' in selected_job_types %}checked{% endif %}>
+                                <span class="checkmark"></span> Full Time
+                            </label>
+                            <label class="checkbox-container">
+                                <input type="checkbox" name="job_type" value="part_time" {% if 'part_time' in selected_job_types %}checked{% endif %}>
+                                <span class="checkmark"></span> Part Time
+                            </label>
+                        </div>
+                    </div>
+
+                
+                    <!-- Work Mode Filter -->
+                    <div class="filter-group">
+                        <h3>Work Mode</h3>
+                        <div class="filter-options">
+                            <label class="checkbox-container">
+                                <input type="checkbox" name="job_location_type" value="remote" {% if 'remote' in selected_location_types %}checked{% endif %}>
+                                <span class="checkmark"></span> Remote
+                            </label>
+                            <label class="checkbox-container">
+                                <input type="checkbox" name="job_location_type" value="on_site" {% if 'on_site' in selected_location_types %}checked{% endif %}>
+                                <span class="checkmark"></span> On Site
+                            </label>
+                            <label class="checkbox-container">
+                                <input type="checkbox" name="job_location_type" value="hybrid" {% if 'hybrid' in selected_location_types %}checked{% endif %}>
+                                <span class="checkmark"></span> Hybrid
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Apply Filters Button -->
+                    <button type="submit" class="apply-filters-btn">Apply Filters</button>
+                    <button type="reset" class="reset-filters-btn" onclick="window.location.href='{% url 'job:job_list' %}'">Reset Filters</button>
+                </form>
+            </div>
+
+            <!-- Jobs List -->
+            <div class="jobs-list">
+                <div class="jobs-header" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+                    <form method="get" style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap;">
+            
+                        <div class="search-box" style="display: flex; align-items: center;">
+                            <i class="fas fa-search" style="margin-right: 8px;"></i>
+                            <input type="text" name="q" placeholder="Search jobs..." value="{{ search_query }}">
+                        </div>
+            
+                        <div class="sort-options">
+                            <select name="sort" onchange="this.form.submit()">
+                                <option value="newest" {% if current_sort == 'newest' %}selected{% endif %}>New First</option>
+                                <option value="oldest" {% if current_sort == 'oldest' %}selected{% endif %}>Old First</option>
+                            </select>
+                        </div>
+            
+                        <button type="submit" style="display: none;"></button>
+                    </form>
+                </div>
+
+                <div class="jobs-grid">
+                    <!-- Job Card  -->
+                    {% for job in job_list %}
+                    <div class="job-card">
+                        <div class="job-info">
+                            <h3>{{job.title}}</h3>
+                            <p class="company">{{job.company_name}}</p>
+                            <p class="location"><i class="fas fa-map-marker-alt"></i> {{job.location}}</p>
+                            <div class="job-tags">
+                                <span>{{job.job_type}}</span>
+                                <span>{{job.job_location_type}}</span>
+                            </div>
+                        </div>
+                        <a href="{% url 'job:job_detail' id=job.id %}" class="apply-btn">See more</a>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    <form method="get">
+                        {% for num in page_obj.paginator.page_range %}
+                            {% if num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                                {% if page_obj.number == num %}
+                                    <button type="submit" name="page" value="{{ num }}" class="page-btn active">{{ num }}</button>
+                                {% else %}
+                                    <button type="submit" name="page" value="{{ num }}" class="page-btn">{{ num }}</button>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

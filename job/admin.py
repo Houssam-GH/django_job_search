@@ -25,7 +25,7 @@ class JobAdmin(admin.ModelAdmin):
             'fields': ('title', 'company_name', 'category', 'location')
         }),
         ('Job Details', {
-            'fields': ('job_type', 'salary')
+            'fields': ('job_type', 'job_location_type', 'salary')
         }),
         ('Description', {
             'fields': ('description', 'email' , 'url_of_job')

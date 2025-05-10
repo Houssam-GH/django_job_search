@@ -1,0 +1,192 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Find Your Dream Job</h1>
+            <p>Search through thousands of job opportunities</p>
+            <div class="search-container">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Job title, keywords, or company">
+                </div>
+                <button class="search-btn">Search Jobs</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Jobs Section -->
+    <section class="latest-jobs">
+        <div class="section-header">
+            <h2>Latest Jobs</h2>
+        </div>
+        <div class="jobs-grid" style="display: grid; grid-template-columns: repeat(3, 1fr) !important; gap: 2rem !important;">
+            <!-- Job Card  -->
+            {% for job in latest_jobs %}
+            <div class="job-card">
+                <div class="job-info">
+                    <h3>{{job.title}}</h3>
+                    <p class="company">{{job.company_name}}</p>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i>{{job.location}}</p>
+                    <div class="job-tags">
+                        <span>{{job.job_type}}</span>
+                         <span>{{job.job_location_type}}</span>
+                    </div>
+                </div>
+                <a href="{% url 'job:job_detail' id=job.id %}" class="apply-btn">See more</a>
+            </div>
+            {% endfor %}
+
+        </div>
+        <div class="view-all-container">
+            <a href="{% url 'job:job_list' %}" class="view-all-btn">View All Jobs <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <!-- Job Seekers Section -->
+    <section class="job-seekers" style="background-color: var(--background-light);">
+        <div class="section-header">
+            <h2>Featured Job Seekers</h2>
+        </div>
+        <div class="seekers-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+            <!-- Seeker Card 1 -->
+            <div class="seeker-card">
+                <div class="seeker-image">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Job Seeker">
+                </div>
+                <div class="seeker-info">
+                    <h3>John Doe</h3>
+                    <p class="title">Senior Developer</p>
+                    <p class="skills">React, Node.js, Python</p>
+                    <div class="seeker-tags">
+                        <span>5+ Years Exp.</span>
+                        <span>Available Now</span>
+                    </div>
+                </div>
+                <button class="contact-btn">Contact</button>
+            </div>
+            <!-- Seeker Card 2 -->
+            <div class="seeker-card">
+                <div class="seeker-image">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Job Seeker">
+                </div>
+                <div class="seeker-info">
+                    <h3>Jane Smith</h3>
+                    <p class="title">UX Designer</p>
+                    <p class="skills">Figma, Adobe XD, UI/UX</p>
+                    <div class="seeker-tags">
+                        <span>3+ Years Exp.</span>
+                        <span>Available Now</span>
+                    </div>
+                </div>
+                <button class="contact-btn">Contact</button>
+            </div>
+            <!-- Seeker Card 3 -->
+            <div class="seeker-card">
+                <div class="seeker-image">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Job Seeker">
+                </div>
+                <div class="seeker-info">
+                    <h3>Mike Johnson</h3>
+                    <p class="title">Marketing Specialist</p>
+                    <p class="skills">Digital Marketing, SEO, Analytics</p>
+                    <div class="seeker-tags">
+                        <span>4+ Years Exp.</span>
+                        <span>Available Now</span>
+                    </div>
+                </div>
+                <button class="contact-btn">Contact</button>
+            </div>
+            <!-- Seeker Card 4 -->
+            <div class="seeker-card">
+                <div class="seeker-image">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Job Seeker">
+                </div>
+                <div class="seeker-info">
+                    <h3>Sarah Lee</h3>
+                    <p class="title">Data Analyst</p>
+                    <p class="skills">Excel, SQL, Tableau</p>
+                    <div class="seeker-tags">
+                        <span>2+ Years Exp.</span>
+                        <span>Available Now</span>
+                    </div>
+                </div>
+                <button class="contact-btn">Contact</button>
+            </div>
+            <!-- Seeker Card 5 -->
+            <div class="seeker-card">
+                <div class="seeker-image">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Job Seeker">
+                </div>
+                <div class="seeker-info">
+                    <h3>Ali Hassan</h3>
+                    <p class="title">Mobile Developer</p>
+                    <p class="skills">Flutter, Kotlin, Swift</p>
+                    <div class="seeker-tags">
+                        <span>3+ Years Exp.</span>
+                        <span>Available Now</span>
+                    </div>
+                </div>
+                <button class="contact-btn">Contact</button>
+            </div>
+            <!-- Seeker Card 6 -->
+            <div class="seeker-card">
+                <div class="seeker-image">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Job Seeker">
+                </div>
+                <div class="seeker-info">
+                    <h3>Linda Brown</h3>
+                    <p class="title">QA Engineer</p>
+                    <p class="skills">Testing, Selenium, JIRA</p>
+                    <div class="seeker-tags">
+                        <span>5+ Years Exp.</span>
+                        <span>Available Now</span>
+                    </div>
+                </div>
+                <button class="contact-btn">Contact</button>
+            </div>
+        </div>
+        <div class="view-all-container">
+            <a href="" class="view-all-btn">View All <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <!-- Companies Section -->
+    <section class="hiring-companies" style="background-color: #fff;">
+        <div class="section-header">
+            <h2>Companies that are recruiting</h2>
+        </div>
+        <div class="companies-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+            <!-- Company Card 1 -->
+            <div class="company-card">
+                <div class="company-logo"><i class="fas fa-building"></i></div>
+                <div class="company-info">
+                    <h3>Tech Solutions Inc.</h3>
+                    <p class="company-stats"><i class="fas fa-users"></i> 500+ Employees</p>
+                </div>
+                <a href="" class="company-link">See these offers</a>
+            </div>
+            <!-- Company Card 2 -->
+            <div class="company-card">
+                <div class="company-logo"><i class="fas fa-paint-brush"></i></div>
+                <div class="company-info">
+                    <h3>Creative Design Co.</h3>
+                    <p class="company-stats"><i class="fas fa-users"></i> 200+ Employees</p>
+                </div>
+                <a href="" class="company-link">See these offers</a>
+            </div>
+            <!-- Company Card 3 -->
+            <div class="company-card">
+                <div class="company-logo"><i class="fas fa-bullhorn"></i></div>
+                <h3>Global Marketing Ltd.</h3>
+                <p class="company-stats"><i class="fas fa-users"></i> 300+ Employees</p>
+                <a href="" class="company-link">See these offers</a>
+            </div>
+        </div>
+        <div class="view-all-container">
+            <a href="#" class="view-all-btn">View All Companies <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </section>
+{% endblock %}

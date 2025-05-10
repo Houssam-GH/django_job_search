@@ -1,11 +1,17 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Details - JobSearch</title>
-    <link rel="stylesheet" href="styles.css">
+
+    <!-- External Stylesheets -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles2.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Job Details Custom Styles -->
     <style>
         .job-details-wrapper {
             max-width: 700px;
@@ -102,16 +108,17 @@
     </style>
 </head>
 <body>
+
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="logo">
             <h1>JobSearch</h1>
         </div>
         <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="jobs.html" class="active">Jobs</a>
-            <a href="companies.html">Companies</a>
-            <a href="about.html">About</a>
+            <a href="{% url 'home:home_page' %}">Home</a>
+            <a href="{% url 'job:job_list' %}" class="active">Jobs</a>
+            <a href="">Companies</a>
+            <a href="{% url 'home:about_page' %}">About</a>
         </div>
         <div class="auth-buttons">
             <button class="login-btn">Login</button>
@@ -127,45 +134,41 @@
                     <i class="fas fa-building"></i>
                 </div>
                 <div class="job-details-main">
-                    <div class="job-details-title">Senior Software Engineer</div>
+                    <div class="job-details-title">{{ job.title }}</div>
                     <div class="job-details-meta">
-                        <span><i class="fas fa-building"></i> Tech Solutions Inc.</span> &nbsp;|&nbsp;
-                        <span><i class="fas fa-map-marker-alt"></i> New York, NY</span>
+                        <span><i class="fas fa-building"></i> {{ job.company_name }}</span> &nbsp;|&nbsp;
+                        <span><i class="fas fa-map-marker-alt"></i> {{ job.location }}</span>
                     </div>
                     <div class="job-tags">
-                        <span>Full-time</span>
-                        <span>Remote</span>
-                        <span>$120k - $150k</span>
+                        <span>{{ job.job_type }}</span>
+                        <span>{{ job.job_location_type }}</span>
+                        <span>{{ job.salary }}</span>
                     </div>
                 </div>
             </div>
+
+            {% if job.email%}
             <div class="job-details-desc">
                 <h3>Job Description</h3>
-                <p>
-                    We are looking for a Senior Software Engineer to join our team. You will be responsible for designing, developing, and maintaining high-quality software solutions. The ideal candidate has experience with modern web technologies, cloud platforms, and agile methodologies.
-                </p>
-                <ul>
-                    <li>Design and implement scalable software systems</li>
-                    <li>Collaborate with cross-functional teams</li>
-                    <li>Write clean, maintainable code</li>
-                    <li>Participate in code reviews</li>
-                </ul>
+                <p>{{ job.description }}</p>
             </div>
             <div class="job-details-desc">
-                <h3>Job Requirements</h3>
-                <ul>
-                    <li>Bachelor's degree in Computer Science or related field</li>
-                    <li>3+ years of experience in web development</li>
-                    <li>Proficiency in HTML, CSS, JavaScript, and React</li>
-                    <li>Experience with version control systems (Git)</li>
-                    <li>Strong problem-solving skills and attention to detail</li>
-                    <li>Excellent communication and teamwork abilities</li>
-                </ul>
+                <h3>Apply</h3>
+                <p>{{ job.email }}</p>
             </div>
             <div class="job-details-actions">
-                <a href="jobs.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Jobs</a>
-                <button class="apply-btn">Apply Now</button>
+                <a href="{% url 'job:job_list' %}" class="back-link"><i class="fas fa-arrow-left"></i> Back to Jobs</a>
             </div>
+            {% elif job.url_of_job %}
+            <div class="job-details-desc">
+                <h3>Job Description</h3>
+                <p>{{ job.description }}</p>
+            </div>
+            <div class="job-details-actions">
+                <a href="{% url 'job:job_list' %}" class="back-link"><i class="fas fa-arrow-left"></i> Back to Jobs</a>
+                <a href="{{ job.url_of_job }}" target="_blank" class="apply-btn">Apply Now</a>
+            </div>
+            {% endif %}
         </div>
     </section>
 
@@ -186,9 +189,9 @@
                 <h3>Quick Links</h3>
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="jobs.html">Jobs</a></li>
-                    <li><a href="companies.html">Companies</a></li>
-                    <li><a href="about.html">About</a></li>
+                    <li><a href="{% url 'job:job_list' %}">Jobs</a></li>
+                    <li><a href="">Companies</a></li>
+                    <li><a href="{% url 'home:about_page' %}">About</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -213,5 +216,6 @@
             <p>&copy; 2024 JobSearch. All rights reserved.</p>
         </div>
     </footer>
+
 </body>
-</html> 
+</html>

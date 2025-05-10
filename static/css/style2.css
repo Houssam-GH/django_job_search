@@ -1,0 +1,93 @@
+/* === JOB DETAILS STYLE === */
+.job-details-wrapper {
+    max-width: 700px;
+    margin: 7rem auto 3rem;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 4px 16px rgba(44, 62, 80, 0.08);
+    padding: 2.5rem 2rem 2rem 2rem;
+}
+.job-details-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+.job-details-icon {
+    font-size: 2.7rem;
+    color: var(--primary-green);
+    background: #f1f8e9;
+    border-radius: 10px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.job-details-main {
+    flex: 1;
+}
+.job-details-title {
+    font-size: 2rem;
+    color: var(--text-dark);
+    margin-bottom: 0.3rem;
+}
+.job-details-meta {
+    color: #4b5563;
+    font-size: 1.05rem;
+    margin-bottom: 0.5rem;
+}
+.job-tags {
+    display: flex;
+    gap: 0.7rem;
+    margin-bottom: 1.5rem;
+}
+.job-tags span {
+    background: #e8f5e9;
+    color: var(--primary-green);
+    padding: 0.3rem 1.1rem;
+    border-radius: 15px;
+    font-size: 0.95rem;
+}
+.job-details-desc {
+    background: #f9fbe7;
+    border-radius: 8px;
+    padding: 1.2rem 1rem;
+    margin-bottom: 2rem;
+}
+.job-details-desc h3 {
+    color: var(--primary-green);
+    margin-bottom: 0.7rem;
+    font-size: 1.15rem;
+}
+.job-details-desc ul {
+    margin: 0.7rem 0 0 1.2rem;
+}
+.job-details-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+.back-link {
+    color: var(--primary-green);
+    text-decoration: none;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 1rem;
+    transition: color 0.2s;
+}
+.back-link:hover {
+    color: var(--dark-green);
+}
+.apply-btn {
+    min-width: 160px;
+    padding: 0.9rem 2.2rem;
+    font-size: 1.1rem;
+}
+@media (max-width: 600px) {
+    .job-details-wrapper { padding: 1rem; }
+    .job-details-header { flex-direction: column; gap: 0.7rem; }
+    .job-details-title { font-size: 1.3rem; }
+}
